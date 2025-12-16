@@ -40,3 +40,4 @@ Built with pure HTML, CSS, and JavaScript - no external dependencies required.
 ## 📄 License
 
 MIT License - Feel free to use and modify!
+

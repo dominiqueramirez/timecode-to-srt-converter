@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timecode to SRT Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Timecode to SRT Converter</h1>
+            <p class="subtitle">Convert transcripts with HH:MM:SS:FF timecodes to standard SRT subtitle format</p>
+            <p class="developer-credit">Developed by Dominique Ramirez</p>
+        </header>
+
+        <main>
+            <div class="top-section">
+                <div class="input-format-box">
+                    <h3>📋 Expected Input Format</h3>
+                    <p>Paste your transcript with timecodes in this format:</p>
+                    <div class="format-example">
+                        <code>00;00;03;15 - 00;00;06;20</code><br>
+                        <code>This is the first subtitle text.</code><br><br>
+                        <code>00;00;06;21 - 00;00;09;10</code><br>
+                        <code>This is the second subtitle text.</code>
+                    </div>
+                    <div class="fps-selector">
+                        <label for="frameRate">Frame Rate (FPS):</label>
+                        <select id="frameRate">
+                            <option value="23.976">23.976 fps (Film)</option>
+                            <option value="24">24 fps (Cinema)</option>
+                            <option value="25">25 fps (PAL)</option>
+                            <option value="29.97" selected>29.97 fps (NTSC)</option>
+                            <option value="30">30 fps</option>
+                            <option value="50">50 fps</option>
+                            <option value="59.94">59.94 fps</option>
+                            <option value="60">60 fps</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-zone-content">
+                            <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="drop-text">Drop your .txt file here</p>
+                            <p class="drop-or">or</p>
+                            <button type="button" class="browse-btn" id="browseBtn">📁 Browse Files</button>
+                            <input type="file" id="fileInput" accept=".txt" hidden>
+                            <p class="file-hint">Accepts .txt files only</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-areas">
+                <div class="text-area-container">
+                    <h3>📝 Input Transcript</h3>
+                    <textarea id="inputText" placeholder="Paste your transcript here or upload a .txt file..."></textarea>
+                </div>
+
+                <div class="text-area-container">
+                    <h3>✨ SRT Output Preview</h3>
+                    <textarea id="outputText" readonly placeholder="Converted SRT will appear here..."></textarea>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="btn btn-convert" id="convertBtn">⚡ Convert to SRT</button>
+                <button type="button" class="btn btn-copy" id="copyBtn">📋 Copy to Clipboard</button>
+                <button type="button" class="btn btn-download" id="downloadBtn">💾 Download SRT</button>
+                <button type="button" class="btn btn-clear" id="clearBtn">🗑️ Clear All</button>
+            </div>
+
+            <div id="statusMessage" class="status-message"></div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
